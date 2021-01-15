@@ -74,7 +74,9 @@ const login = async (req, res) => {
 // ANCHOR show profile
 const show = async (req, res) => {
     try {
-        
+        const user = await db.User.findById(req.params.id);
+        context = {user};
+        return res.render('users/show', context);
     } catch (error) {
         
     }
@@ -90,7 +92,7 @@ const updateForm = async (req, res) => {
     }
 }
 
-// ANCHOR update submission
+// ANCHOR update 
 const update = async (req, res) => {
     try {
         
