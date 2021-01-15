@@ -17,7 +17,7 @@ const register = async (req, res) => {
 
 // login form
 const loginForm = (req, res) => {
-    console.log('Login GET route hit');
+    res.render('users/login');
 }
 
 // login submission
