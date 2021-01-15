@@ -16,5 +16,8 @@ router.put('/:id', ctrl.users.update);
 
 router.delete('/:id', ctrl.users.remove);
 
+router.delete('/logout', ctrl.users.logout);
+
+
 
 module.exports = router;

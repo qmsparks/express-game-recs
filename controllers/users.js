@@ -40,7 +40,7 @@ const loginForm = (req, res) => {
     res.render('users/login');
 }
 
-// login submission
+// ANCHOR login submission
 const login = async (req, res) => {
     try {
         const foundUser = await db.User.findOne({
@@ -61,7 +61,7 @@ const login = async (req, res) => {
             username: foundUser.username,
             id: foundUser._id
         }
-        console.log(req.session.currentUser);
+
         // TODO redirect to profile page upon logging in
         res.redirect('/');
 
@@ -74,11 +74,16 @@ const login = async (req, res) => {
 // ANCHOR show profile
 const show = async (req, res) => {
     try {
-        const user = await db.User.findById(req.params.id);
-        context = {user};
+        const foundUser = await db.User.findById(req.params.id);
+        const currentUser = await db.User.findById(req.session.currentUser.id);
+        context = {
+            profile: foundUser,
+            user: currentUser
+        };
+
         return res.render('users/show', context);
     } catch (error) {
-        
+        res.send(error);
     }
 
 }
@@ -110,6 +115,17 @@ const remove = async (req, res) => {
     }
 }
 
+// ANCHOR logout
+
+const logout = async (req, res) => {
+    try {
+        await req.session.destroy();
+        return res.redirect('/');
+    } catch (error) {
+        res.send(error);
+    }
+}
+
 module.exports = {
     registerForm,
     register,
@@ -118,5 +134,6 @@ module.exports = {
     show,
     updateForm,
     update,
-    remove
+    remove,
+    logout
 }
