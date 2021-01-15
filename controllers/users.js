@@ -9,9 +9,13 @@ const registerForm = (req, res) => {
 // register submission
 const register = async (req, res) => {
     try {
-        
+        // const foundUserEmail = await db.User.findOne({email:req.body.email});
+        // const foundUserName = await db.User.findOne({username: req.body.username});
+
+        console.log('Register POST route hit');
+
     } catch (error) {
-        
+        console.log(error);
     }
 }
 
