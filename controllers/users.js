@@ -31,7 +31,7 @@ const register = async (req, res) => {
         // TODO automatically log in newly registered users
         return res.redirect('/');
     } catch (error) {
-        console.log(error);
+        res.send(error);
     }
 }
 
@@ -43,9 +43,30 @@ const loginForm = (req, res) => {
 // login submission
 const login = async (req, res) => {
     try {
-        console.log(req.body);
+        const foundUser = await db.User.findOne({
+            username: req.body.username
+        });
+
+        if (!foundUser) {
+            return res.redirect('/users/login');
+        }
+
+        const match = await bcrypt.compare(req.body.password, foundUser.password);
+
+        if (!match) {
+            return res.redirect('/users/login');
+        }
+
+        req.session.currentUser = {
+            username: foundUser.username,
+            id: foundUser._id
+        }
+        console.log(req.session.currentUser);
+        // TODO redirect to profile page upon logging in
+        res.redirect('/');
+
     } catch (error) {
-        
+        res.send(error);
     }
 
 }
