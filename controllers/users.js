@@ -43,7 +43,7 @@ const loginForm = (req, res) => {
 // login submission
 const login = async (req, res) => {
     try {
-        console.log('Login POST route hit');
+        console.log(req.body);
     } catch (error) {
         
     }

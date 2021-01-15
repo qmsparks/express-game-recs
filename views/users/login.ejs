@@ -3,14 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>Log In</title>
 </head>
 <body>
-    <h1>Login here!</h1>
+    <h1>Log In here!</h1>
 
     <form action="/users/login" method="POST">
     
-        <button type="submit">Test</button>
+        <div>
+            <label for="username">Username</label>
+            <input type="text" name="username" id="username">
+        </div>
+
+        <div>
+            <label for="password">Password</label>
+            <input type="password" name="password" id="password">
+        </div>
+
+        <button type="submit">Log In</button>
     </form>
 </body>
 </html>
