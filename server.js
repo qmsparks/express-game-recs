@@ -2,7 +2,7 @@
 const express = require('express');
 
 // ANCHOR internal imports
-// const routes = require('./routes');
+const routes = require('./routes');
 const db = require('./models');
 
 // ANCHOR config
