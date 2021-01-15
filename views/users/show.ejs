@@ -8,9 +8,8 @@
 <body>
     <h1> <%= profile.username %>'s  Profile</h1>
 
-    <% if (profile.id === user.id) { %>
-        <p>Go ahead and make changes to this user</p>
+    <% if (user.id === profile.id) { %>
+        <p>Feel free to delete this!</p>
     <% } %>
-
 </body>
 </html>

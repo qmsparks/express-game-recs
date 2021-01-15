@@ -62,8 +62,7 @@ const login = async (req, res) => {
             id: foundUser._id
         }
 
-        // TODO redirect to profile page upon logging in
-        res.redirect('/');
+        res.redirect(`/users/${req.session.currentUser.id}`);
 
     } catch (error) {
         res.send(error);
@@ -88,23 +87,33 @@ const show = async (req, res) => {
 
 }
 
-// ANCHOR update form
-const updateForm = async (req, res) => {
-    try {
-        
-    } catch (error) {
-        
-    }
-}
+// // ANCHOR update form
+// const updateForm = async (req, res) => {
+//     try {
+//         const user = await db.User.findById(req.session.currentUser.id);
 
-// ANCHOR update 
-const update = async (req, res) => {
-    try {
+//         context = {user};
+
+//         return res.render('users/edit', context);
+//     } catch (error) {
+//         res.send(error);
+//     }
+// }
+
+// // ANCHOR update 
+// const update = async (req, res) => {
+//     try {
+//         await db.User.findByIdAndUpdate(
+//             req.session.currenUser.id,
+//             req.body,
+//             {new: true}
+//         );
+
+//         return res.redirect(`/users/${req.session.currentUser.id}`);
+//     } catch (error) {
         
-    } catch (error) {
-        
-    }
-}
+//     }
+// }
 
 // ANCHOR delete
 const remove = async (req, res) => {
@@ -132,8 +141,8 @@ module.exports = {
     loginForm,
     login,
     show,
-    updateForm,
-    update,
+    // updateForm,
+    // update,
     remove,
     logout
 }
