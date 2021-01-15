@@ -3,7 +3,7 @@ const db = require('../models');
 
 // register form
 const registerForm = (req, res) => {
-
+    res.render('users/new');
 }
 
 // register submission
@@ -17,7 +17,7 @@ const register = async (req, res) => {
 
 // login form
 const loginForm = (req, res) => {
-
+    console.log('Login GET route hit');
 }
 
 // login submission
@@ -27,6 +27,7 @@ const login = async (req, res) => {
     } catch (error) {
         
     }
+
 }
 
 // show profile
@@ -36,6 +37,7 @@ const show = async (req, res) => {
     } catch (error) {
         
     }
+
 }
 
 // update form
@@ -74,5 +76,4 @@ module.exports = {
     updateForm,
     update,
     remove
-
 }
