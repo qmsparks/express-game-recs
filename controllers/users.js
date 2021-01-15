@@ -2,7 +2,7 @@ const bcrypt = require('bcryptjs');
 const { render } = require('ejs');
 const db = require('../models');
 
-// register form
+// ANCHOR register form
 const registerForm = (req, res) => {
     context = {
         message: ''
@@ -10,7 +10,7 @@ const registerForm = (req, res) => {
     res.render('users/new', context);
 }
 
-// register submission
+// ANCHOR register submission
 const register = async (req, res) => {
     try {
         const foundUserEmail = await db.User.findOne({email:req.body.email});
@@ -19,28 +19,23 @@ const register = async (req, res) => {
         if (foundUserEmail || foundUserName) {
             return res.redirect('/users/new');
         }
+        const salt = await bcrypt.genSalt(10);
+        const hash = await bcrypt.hash(req.body.password, salt);
+        const createdUser = await db.User.create({
+            username: req.body.username,
+            email: req.body.email,
+            password: hash
+        });
 
-        if (req.body.password === req.body.confirm) {
-            const salt = await bcrypt.genSalt(10);
-            const hash = await bcrypt.hash(req.body.password, salt);
-            const createdUser = await db.User.create({
-                username: req.body.username,
-                email: req.body.email,
-                password: hash
-            });
-
-            console.log(createdUser);
-            res.redirect('/');
-        } else {
-            return res.redirect('/users/new');
-        }
-
+        console.log(createdUser);
+        // TODO automatically log in newly registered users
+        return res.redirect('/');
     } catch (error) {
         console.log(error);
     }
 }
 
-// login form
+// ANCHOR login form
 const loginForm = (req, res) => {
     res.render('users/login');
 }
@@ -48,14 +43,14 @@ const loginForm = (req, res) => {
 // login submission
 const login = async (req, res) => {
     try {
-        
+        console.log('Login POST route hit');
     } catch (error) {
         
     }
 
 }
 
-// show profile
+// ANCHOR show profile
 const show = async (req, res) => {
     try {
         
@@ -65,7 +60,7 @@ const show = async (req, res) => {
 
 }
 
-// update form
+// ANCHOR update form
 const updateForm = async (req, res) => {
     try {
         
@@ -74,7 +69,7 @@ const updateForm = async (req, res) => {
     }
 }
 
-// update submission
+// ANCHOR update submission
 const update = async (req, res) => {
     try {
         
@@ -83,7 +78,7 @@ const update = async (req, res) => {
     }
 }
 
-// delete
+// ANCHOR delete
 const remove = async (req, res) => {
     try {
         

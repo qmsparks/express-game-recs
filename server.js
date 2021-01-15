@@ -2,6 +2,8 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const methodOverride = require('method-override');
+const session = require('express-session');
+const MongoStore = require('connect-mongo')(session);
 
 // ANCHOR internal imports
 const routes = require('./routes');
@@ -19,6 +21,17 @@ app.set('view engine', 'ejs');
 app.use(express.static(`${__dirname}/public`));
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(methodOverride('_method'));
+app.use(session({
+    resave: false,
+    saveUninitialized: false,
+    secret: process.env.SECRET,
+    store: new MongoStore({
+        url: process.env.MONGODB_URI || 'mongodb://localhost:27017/recs-sessions'
+    }),
+    cookie: {
+        maxAge: 1000 * 60 * 60 * 24 * 7 * 2
+    }
+}))
 
 // ANCHOR routes
 app.use('/users', routes.users);
