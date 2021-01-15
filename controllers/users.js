@@ -12,7 +12,7 @@ const register = async (req, res) => {
         // const foundUserEmail = await db.User.findOne({email:req.body.email});
         // const foundUserName = await db.User.findOne({username: req.body.username});
 
-        console.log('Register POST route hit');
+        console.log(req.body);
 
     } catch (error) {
         console.log(error);
