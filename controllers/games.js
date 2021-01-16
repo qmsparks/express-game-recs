@@ -14,7 +14,12 @@ const gameForm = (req, res) => {
 
 const addGame = async (req, res) => {
     try {
-        console.log(req.body);
+        const newGameObj = req.body;
+        newGameObj.gm = (req.body.gm === 'on') ? true : false;
+
+        const addedGame = await db.Game.create(newGameObj);
+        console.log(addedGame);
+        
     } catch (error) {
         res.send(error);
     }
