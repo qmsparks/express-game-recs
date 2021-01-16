@@ -4,9 +4,6 @@ const db = require('../models');
 
 // ANCHOR register form
 const registerForm = (req, res) => {
-    context = {
-        message: ''
-    }
     res.render('users/new', context);
 }
 
