@@ -100,9 +100,16 @@ const logout = async (req, res) => {
 // ANCHOR delete
 const deleteUser = async (req, res) => {
     try {
-        return res.send('Delete route hit');
+        const deletedUser = await db.User.findByIdAndDelete(req.session.currentUser.id);
+
+        // await db.Comment.deleteMany({user: deletedUser._id});
+
+        await req.session.destroy();
+
+        console.log(deletedUser);
+        res.redirect('/');
     } catch (error) {
-        
+        res.send(error);
     }
 }
 
