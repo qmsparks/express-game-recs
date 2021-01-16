@@ -11,12 +11,11 @@ router.post('/login', ctrl.users.login);
 
 router.get('/:id', ctrl.users.show);
 
-// router.get('/:id/edit', ctrl.users.updateForm);
-// router.put('/', ctrl.users.update);
-
-router.delete('/:id', ctrl.users.remove);
 
 router.delete('/logout', ctrl.users.logout);
+
+router.delete('/:id', ctrl.users.deleteUser);
+
 
 
 

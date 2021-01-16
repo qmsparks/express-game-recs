@@ -10,6 +10,10 @@
 
     <% if (user.id === profile.id) { %>
         <p>Feel free to delete this!</p>
+
+        <form action="/users/<%= user._id %>?_method=DELETE" method="POST">
+            <button type="submit">Test</button>
+        </form>
     <% } %>
 </body>
 </html>

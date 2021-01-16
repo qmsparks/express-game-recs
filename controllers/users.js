@@ -87,45 +87,7 @@ const show = async (req, res) => {
 
 }
 
-// // ANCHOR update form
-// const updateForm = async (req, res) => {
-//     try {
-//         const user = await db.User.findById(req.session.currentUser.id);
-
-//         context = {user};
-
-//         return res.render('users/edit', context);
-//     } catch (error) {
-//         res.send(error);
-//     }
-// }
-
-// // ANCHOR update 
-// const update = async (req, res) => {
-//     try {
-//         await db.User.findByIdAndUpdate(
-//             req.session.currenUser.id,
-//             req.body,
-//             {new: true}
-//         );
-
-//         return res.redirect(`/users/${req.session.currentUser.id}`);
-//     } catch (error) {
-        
-//     }
-// }
-
-// ANCHOR delete
-const remove = async (req, res) => {
-    try {
-        
-    } catch (error) {
-        
-    }
-}
-
 // ANCHOR logout
-
 const logout = async (req, res) => {
     try {
         await req.session.destroy();
@@ -135,14 +97,21 @@ const logout = async (req, res) => {
     }
 }
 
+// ANCHOR delete
+const deleteUser = async (req, res) => {
+    try {
+        return res.send('Delete route hit');
+    } catch (error) {
+        
+    }
+}
+
 module.exports = {
     registerForm,
     register,
     loginForm,
     login,
     show,
-    // updateForm,
-    // update,
-    remove,
+    deleteUser,
     logout
 }
