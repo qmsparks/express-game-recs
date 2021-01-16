@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Game</title>
+</head>
+<body>
+    <h1>Add new Game</h1>
+
+    <form action="/games" method="POST">
+    <div>
+        <label for="title">Title</label>
+        <input type="text" name="title" id="title">
+    </div>
+
+    <div>
+        <label for="creator">Creator</label>
+        <input type="text" name="creator" id="creator">
+    </div>
+
+    <div>
+        <label for="publisher">Publisher</label>
+        <input type="text" name="publisher" id="publisher">
+    </div>
+
+    <div>
+        <label for="gm">Require a Game Master?</label>
+        <input type="checkbox" name="gm" id="gm">
+    </div>
+
+    <div>
+        <label for="minPlayers">Player Minimum</label>
+        <input type="number" name="minPlayers" id="minPlayers">
+    </div>
+
+    <div>
+        <label for="maxPlayers">Player Maximum</label>
+        <input type="number" name="maxPlayers" id="maxPlayers">
+    </div>
+
+    <div>
+        <label for="description">Description</label>
+        <input type="text" name="description" id="description">
+    </div>
+
+    <div>
+        <label for="link">Store or Website Link</label>
+        <input type="url" name="link" id="link">
+    </div>
+
+    <button type="submit">Add Game</button>
+
+    </form>
+</body>
+</html>

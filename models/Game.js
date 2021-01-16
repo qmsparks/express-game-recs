@@ -18,6 +18,10 @@ const gameSchema = new Schema({
         type: String,
         required: true
     },
+    gm: {
+        type: Boolean,
+        required: true
+    },
     minPlayers: {
         type: Number,
         required: true

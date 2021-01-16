@@ -35,6 +35,7 @@ app.use(session({
 
 // ANCHOR routes
 app.use('/users', routes.users);
+app.use('/games', routes.games);
 
 // ANCHOR connection
 app.listen(PORT, () => console.log(`Server is running at http://localhost:${PORT}`));
