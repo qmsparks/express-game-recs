@@ -34,7 +34,9 @@ const show = async (req, res) => {
     try {
         const foundGame = await db.Game.findById(req.params.id);
 
-        context = {foundGame};
+        context = {
+            game: foundGame
+        };
 
         res.render('games/show', context);
     } catch (error) {
