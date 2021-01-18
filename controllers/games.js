@@ -2,7 +2,12 @@ const db = require('../models');
 
 const index = async (req, res) => {
     try {
-        res.render('games/index');
+        const allGames = await db.Game.find({});
+
+        context = {
+            games: allGames
+        }
+        res.render('games/index', context);
     } catch (error) {
         
     }
@@ -27,11 +32,11 @@ const addGame = async (req, res) => {
 
 const show = async (req, res) => {
     try {
-        // const foundGame = await db.Game.findById(req.params.id);
+        const foundGame = await db.Game.findById(req.params.id);
 
-        // context = {foundGame};
+        context = {foundGame};
 
-        res.send('Game Show Route Hit')
+        res.render('games/show', context);
     } catch (error) {
         
     }
