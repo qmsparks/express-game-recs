@@ -20,5 +20,17 @@ Pending
 - Tagging system
 - Add filtration by tags or number of players or whether or not the game requires a GM to search functionality
 
+## Technology Used
+- Express
+- PostgreSQL
+- Sequelize
+- Bcrypt
+- Connect-flash
+- EJS
+- Passport
+
+## Routes
+Pending
+
 ## Installation instructions
 Pending
