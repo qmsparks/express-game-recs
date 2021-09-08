@@ -46,9 +46,9 @@ app.get('/', (req, res) => {
 })
 
 app.get('/profile', isLoggedIn, (req, res) => {
-  const {id, name, email} = req.user.get();
+  const {id, firstName, lastName, email} = req.user.get();
 
-  context = {id, name, email}
+  context = {id, firstName, lastName, email}
   res.render('profile', context);
 })
 

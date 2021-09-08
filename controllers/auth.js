@@ -28,19 +28,19 @@ router.post('/login', passport.authenticate('local', {
 
 router.post('/signup', async (req, res) => {
   // we now have access to the user info (req.body);
-  const { email, name, password } = req.body; // goes and us access to whatever key/value inside of the object
+  const { email, firstName, lastName, password } = req.body; // goes and us access to whatever key/value inside of the object
   try {
     const [user, created] = await User.findOrCreate({
         where: { email },
-        defaults: { name, password }
+        defaults: { firstName, lastName, password }
     });
 
     if (created) {
         // if created, success and we will redirect back to / page
-        console.log(`----- ${user.name} was created -----`);
+        console.log(`----- ${user.firstName} ${user.lastName} was created -----`);
         const successObject = {
             successRedirect: '/',
-            successFlash: `Welcome ${user.name}. Account was created and logging in...`
+            successFlash: `Welcome ${user.firstName}. Account was created and logging in...`
         }
         // 
         passport.authenticate('local', successObject)(req, res);
