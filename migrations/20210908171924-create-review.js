@@ -17,7 +17,7 @@ module.exports = {
       rating: {
         type: Sequelize.INTEGER
       },
-      context: {
+      content: {
         type: Sequelize.TEXT
       },
       createdAt: {

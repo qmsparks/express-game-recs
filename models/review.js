@@ -11,13 +11,14 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      // TODO gotta add the associations here as well
     }
   };
   Review.init({
     UserId: DataTypes.INTEGER,
     GameId: DataTypes.INTEGER,
     rating: DataTypes.INTEGER,
-    context: DataTypes.TEXT
+    content: DataTypes.TEXT
   }, {
     sequelize,
     modelName: 'Review',
