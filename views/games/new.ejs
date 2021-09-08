@@ -1,0 +1,33 @@
+<form action="/games" method="POST">
+<label for="game-name">Title</label>
+<input type="text" name="name" id="game-name" required>
+
+<label for="game-author">Author</label>
+<input type="text" name="author" id="game-author" required>
+
+<label for="game-publisher">Publisher</label>
+<input type="text" name="publisher" id="game-publisher">
+
+<label for="game-description">Game Description</label>
+<input type="text" name="description" id="game-description">
+
+<label for="game-min-players">Minimum Players</label>
+<input type="number" name="minPlayers" id="game-min-players">
+
+<label for="game-max-players">Maximum Players</label>
+<input type="number" name="maxPlayers" id="game-max-players">
+
+<label for="game-play-time">Session Duration</label>
+<input type="text" name="playTime" id="game-play-time">
+
+<label for="game-requires-gm">Requires GM</label>
+<input type="radio" name="requiresGM" id="game-requires-gm">
+
+<label for="game-store-link">Store Link</label>
+<input type="url" name="storeLink" id="game-store-link">
+
+<label for="game-price">Price</label>
+<input type="number" name="price" id="game-price">
+
+<input type="submit" value="Submit Game">
+</form>

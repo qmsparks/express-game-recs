@@ -26,7 +26,48 @@ const show = async (req, res) => {
   }
 }
 
+const newForm = (req, res) => {
+  return res.render('games/new');
+}
+
+const editForm = async (req, res) => {
+  try {
+    
+  } catch (err) {
+    console.log(err);
+  }
+}
+
+const addGame = async (req, res) => {
+  try {
+    
+  } catch (err) {
+    console.log(err)
+  }
+}
+
+const updateGame = async (req, res) => {
+  try {
+    
+  } catch (err) {
+    console.log(err)
+  }
+}
+
+const destroy = async (req, res) => {
+  try {
+    
+  } catch (err) {
+    console.log(err);
+  }
+}
+
 module.exports = {
   index,
-  show
+  show,
+  newForm,
+  editForm,
+  addGame,
+  updateGame,
+  destroy
 }
