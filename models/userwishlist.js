@@ -14,8 +14,8 @@ module.exports = (sequelize, DataTypes) => {
     }
   };
   UserWishlist.init({
-    UserId: DataTypes.INTEGER,
-    GameId: DataTypes.INTEGER
+    userId: DataTypes.INTEGER,
+    gameId: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'UserWishlist',
