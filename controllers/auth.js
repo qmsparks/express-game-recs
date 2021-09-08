@@ -42,23 +42,9 @@ const register = async (req, res) => {
   }
 }
 
-const login = async (req, res) => {
-  try {
-    passport.authenticate('local', {
-      successRedirect: '/',
-      failureRedirect: '/auth/login',
-      successFlash: 'Welcome back ...',
-      failureFlash: 'Either email or password is incorrect' 
-    })
-  } catch (err) {
-    console.log(err);
-  }
-}
-
 module.exports = {
   registerPage,
   loginPage,
   register,
-  login,
   logout
 }

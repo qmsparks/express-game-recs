@@ -42,27 +42,14 @@ app.use((req, res, next) => {
 });
 
 // ANCHOR routes
-// app.get('/', (req, res) => {
-//   return res.render('index');
-// })
-
-// app.get('/profile', isLoggedIn, (req, res) => {
-//   const {id, firstName, lastName, email} = req.user.get();
-
-//   context = {id, firstName, lastName, email}
-//   res.render('profile', context);
-// })
-
-// app.use('/auth', ctrl.auth);
-
 app.get('/', (req, res) => {
   return res.render('index');
 })
 
 app.use('/auth', routes.auth);
-// app.use('/users', routes.users);
-// app.use('/games', routes.games);
-// app.use('/reviews', routes.reviews);
+app.use('/users', routes.users);
+app.use('/games', routes.games);
+app.use('/reviews', routes.reviews);
 
 // ANCHOR listener
 const server = app.listen(PORT, () => {
